@@ -2,8 +2,6 @@
 import sys
 import warnings
 
-from datetime import datetime
-
 from interview_agent.crew import InterviewAgent
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
@@ -18,10 +16,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'Open Source AI Agent Frameworks',
-        'current_year': str(datetime.now().year)
+        'interviewer': 'Sarah Johnson',
+        'company': 'TechCorp',
+        'job_position': 'Senior Software Engineer',
+        'job_description': 'We are looking for an experienced software engineer with expertise in Python, distributed systems, and cloud technologies. The ideal candidate will have 5+ years of experience building scalable applications.'
     }
-    
+
     try:
         InterviewAgent().crew().kickoff(inputs=inputs)
     except Exception as e:
@@ -33,8 +33,10 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
-        'current_year': str(datetime.now().year)
+        'interviewer': 'Sarah Johnson',
+        'company': 'TechCorp',
+        'job_position': 'Senior Software Engineer',
+        'job_description': 'We are looking for an experienced software engineer with expertise in Python, distributed systems, and cloud technologies. The ideal candidate will have 5+ years of experience building scalable applications.'
     }
     try:
         InterviewAgent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -57,10 +59,12 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
+        'interviewer': 'Sarah Johnson',
+        'company': 'TechCorp',
+        'job_position': 'Senior Software Engineer',
+        'job_description': 'We are looking for an experienced software engineer with expertise in Python, distributed systems, and cloud technologies. The ideal candidate will have 5+ years of experience building scalable applications.'
     }
-    
+
     try:
         InterviewAgent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
