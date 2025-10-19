@@ -24,17 +24,19 @@ class InterviewAgent():
     @agent
     def interview_agent(self) -> Agent:
         return Agent(
-            config=self.agents_config['interview_agent'],  # type: ignore[index]
+            # type: ignore[index]
+            config=self.agents_config['interview_agent'],
             verbose=True,
             tool=[SerperDevTool]
         )
 
-    # @agent
-    # def reporting_analyst(self) -> Agent:
-    #     return Agent(
-    #         config=self.agents_config['reporting_analyst'], # type: ignore[index]
-    #         verbose=True
-    #     )
+    @agent
+    def interview_coach_agent(self) -> Agent:
+        return Agent(
+            # type: ignore[index]
+            config=self.agents_config['interview_coach_agent'],
+            verbose=True
+        )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -46,12 +48,12 @@ class InterviewAgent():
             config=self.tasks_config['interview_prep_task'],
         )
 
-    # @task
-    # def reporting_task(self) -> Task:
-    #     return Task(
-    #         config=self.tasks_config['reporting_task'], # type: ignore[index]
-    #         output_file='report.md'
-    #     )
+    @task
+    def interview_coach_task(self) -> Task:
+        return Task(
+            # type: ignore[index]
+            config=self.tasks_config['interview_coach_task'],
+        )
 
     @crew
     def crew(self) -> Crew:

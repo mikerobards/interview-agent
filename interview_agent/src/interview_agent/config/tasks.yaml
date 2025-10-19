@@ -1,15 +1,16 @@
 interview_prep_task:
   description: >
-    Interview the user for the job {job_position} with the following description: {job_description}
+    Ask the user one relevant interview question for the job {job_position} with the following description: {job_description}
   expected_output: >
-    ask only one question to the user that is relevant for the job {job_position} that has not been asked before
+    A single, relevant interview question for the position {job_position}
   agent: interview_agent
+interview_coach_task:
+  description: >
+    Review and provide feedback on the user's answer to the interview question
+  expected_output: >
+    Detailed feedback on the user's answer with bullet points on what was good, what needs improvement, and how to take it to the next level.
+    Formatted as markdown without '```'
+  agent: interview_coach_agent
+  context:
+    - interview_prep_task
   human_input: true
-# reporting_task:
-#   description: >
-#     Review the context you got and expand each topic into a full section for a report.
-#     Make sure the report is detailed and contains any and all relevant information.
-#   expected_output: >
-#     A fully fledged report with the main topics, each with a full section of information.
-#     Formatted as markdown without '```'
-#   agent: reporting_analyst
